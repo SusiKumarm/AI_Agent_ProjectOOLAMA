@@ -1,13 +1,13 @@
 import ollama
 
+user_input = input("Enter your prompt: ")
+
 response = ollama.chat(
     model='mistral',
     messages=[
-        {
-            'role': 'user',
-            'content': 'Generate detailed positive and negative test cases for login functionality'
-        }
+        {'role': 'user', 'content': user_input}
     ]
 )
 
+print("\nResponse:\n")
 print(response['message']['content'])
