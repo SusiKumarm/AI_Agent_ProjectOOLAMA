@@ -1,0 +1,56 @@
+# ==============================
+# Python
+# ==============================
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# ==============================
+# VS Code
+# ==============================
+
+.vscode/
+.history/
+
+# ==============================
+# Environment Files
+# ==============================
+
+.env
+.env.*
+
+# ==============================
+# Logs
+# ==============================
+
+*.log
+
+# ==============================
+# OS Files
+# ==============================
+
+.DS_Store
+Thumbs.db
+
+# ==============================
+# Ollama (Local Model Cache)
+# ==============================
+
+# Do NOT commit local Ollama models
+# Models are stored in:
+# Windows: C:\Users\<user>\.ollama
+# Mac/Linux: ~/.ollama
