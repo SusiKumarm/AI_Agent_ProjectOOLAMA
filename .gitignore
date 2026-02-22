@@ -14,10 +14,35 @@ dist/
 build/
 .eggs/
 
+# ==============================
 # Virtual Environment
+# ==============================
+
 .venv/
 venv/
 env/
+
+# ==============================
+# Chroma Vector DB (RAG storage)
+# ==============================
+
+db/
+chromadb/
+*.sqlite3
+
+# ==============================
+# Local Data Files (PDFs / Docs)
+# ==============================
+
+data/
+*.pdf
+*.docx
+
+# ==============================
+# Streamlit Cache
+# ==============================
+
+.streamlit/
 
 # ==============================
 # VS Code
@@ -50,7 +75,5 @@ Thumbs.db
 # Ollama (Local Model Cache)
 # ==============================
 
-# Do NOT commit local Ollama models
-# Models are stored in:
 # Windows: C:\Users\<user>\.ollama
 # Mac/Linux: ~/.ollama

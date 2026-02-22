@@ -1,3 +1,4 @@
 ollama>=0.6.0
 sentence-transformers>=2.2.2
 chromadb>=0.4.24
+streamlite>=0.1.0

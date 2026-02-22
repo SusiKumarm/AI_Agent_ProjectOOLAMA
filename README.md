@@ -44,14 +44,22 @@ LLM Model (Mistral / Gemma / Phi3)
         ↓
 AI Response
 
-📂 Project Structure
 AI_Agent_ProjectOOLAMA/
 │
-├── ollama_test.py      # Core AI agent
-├── requirements.txt    # Dependencies
+├── rag_setup.py              # Creates embeddings + stores in Chroma DB
+├── rag_chat.py               # CLI-based RAG chatbot
+├── appUistreamLit.py         # Streamlit UI chatbot
+├── ollama_test.py            # Simple Ollama test script (optional)
+│
+├── db/                       # Chroma persistent vector database
+│
+├── requirements.txt          # Dependencies
 ├── README.md
 ├── .gitignore
-└── assets/             # Screenshots (optional)
+│
+├── data/                     # PDFs or documents (if you added PDF support)
+│
+└── assets/                   # Screenshots for README
 
 ⚙️ Requirements
 
@@ -183,10 +191,10 @@ Python Developer | AI Automation Enthusiast
 MIT License
 
 DEMO:-Results
-![alt text](image-1.png)
-![alt text](image-2.png)
+![alt text](assetsResults/image-1.png)
+![alt text](assetsResults/image-2.png)
 
-
+==============================================
 After RAG system :-
 
 
@@ -199,16 +207,36 @@ python rag_setup.py
 Then:
 python rag_chat.py
 
-![alt text](image-3.png)
+![alt text](assetsResults/image-3.png)
 if we dont have data in docs it will retrive from his intelligence 
 
-![alt text](image-4.png)
+![alt text](assetsResults/image-4.png)
 
 
 -----------------------------
 After adding UI streamlite
+
+------------------------------
+User (Streamlit UI)
+        ↓
+Embedding Model (MiniLM)
+        ↓
+ChromaDB (Search similar docs)
+        ↓
+Ollama (phi3:mini)
+        ↓
+Answer shown in UI
+---------------------------
+
+
+pip install -r requirements.txt
+
+streamlit run appUistreamLit.py
+
+
 with RAG
-![alt text](image-5.png)
+![alt text](assetsResults/image-5.png)
 
 with LLM model
-![alt text](image-6.png)
+![alt text](assetsResults/image-6.png)
+![alt text](assetsResults/image-7.png)
