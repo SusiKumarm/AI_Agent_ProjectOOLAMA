@@ -189,10 +189,26 @@ DEMO:-Results
 
 After RAG system :-
 
-1.rag_setup.py
-2.rsg_chat.py
+
+oolama serve in cmd 
+
+
+First time:
+python rag_setup.py
+
+Then:
+python rag_chat.py
 
 ![alt text](image-3.png)
 if we dont have data in docs it will retrive from his intelligence 
 
 ![alt text](image-4.png)
+
+
+-----------------------------
+After adding UI streamlite
+with RAG
+![alt text](image-5.png)
+
+with LLM model
+![alt text](image-6.png)
