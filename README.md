@@ -185,3 +185,14 @@ MIT License
 DEMO:-Results
 ![alt text](image-1.png)
 ![alt text](image-2.png)
+
+
+After RAG system :-
+
+1.rag_setup.py
+2.rsg_chat.py
+
+![alt text](image-3.png)
+if we dont have data in docs it will retrive from his intelligence 
+
+![alt text](image-4.png)
