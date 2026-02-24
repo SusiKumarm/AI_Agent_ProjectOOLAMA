@@ -240,3 +240,13 @@ with RAG
 with LLM model
 ![alt text](assetsResults/image-6.png)
 ![alt text](assetsResults/image-7.png)
+
+Cloud LLM
+ echo $env:GOOGLE_API_KEY   
+
+
+ Fall Back to local AI 
+![alt text](<assetsResults/image-8 Ollamafalback.png>)
+
+Option to choose mode
+![alt text](assetsResults/image-2Option.png)
