@@ -619,3 +619,69 @@ Cloud LLM
 
 Option to choose mode
 ![alt text](assetsResults/image-2Option.png)
+
+===================================================
+
+tools calling 
+## Tool Calling Implementation
+
+### Overview
+
+Added Tool Calling capability to the AI Assistant, allowing the LLM to access real-time information through external tools.
+
+### Use Case
+
+Example:
+
+**User:** What is the current weather in Chennai?
+
+Instead of relying solely on model knowledge, the LLM selects a weather tool, Python executes the API call, and the latest weather information is returned to the user.
+
+### Architecture
+
+```text
+User
+ ↓
+LLM (Tool Selector)
+ ↓
+Tool Request (JSON)
+ ↓
+Python Executes Tool
+ ↓
+External API
+ ↓
+Tool Result
+ ↓
+Response to User
+```
+
+### Tool Added
+
+- Weather Tool (Open-Meteo API)
+
+### Concepts Learned
+
+- Tool Calling
+- AI Agent Fundamentals
+- LLM Tool Selection
+- JSON-Based Communication
+- External API Integration
+- Real-Time Data Retrieval
+
+### Agent Flow
+
+```text
+Think
+ ↓
+Select Tool
+ ↓
+Execute Tool
+ ↓
+Observe Result
+ ↓
+Answer
+```
+
+### Key Learning
+
+Tool Calling extends an LLM beyond its training data by enabling it to interact with external systems and APIs. This is a core building block for AI Agents, MCP, LangGraph, and enterprise AI applications.
