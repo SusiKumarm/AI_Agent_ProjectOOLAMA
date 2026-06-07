@@ -186,6 +186,375 @@ Structured a modular, production-ready project
 Susikumar Masilamani
 Python Developer | AI Automation Enthusiast
 
+# 🚀 How to Run the Application
+
+## Prerequisites
+
+Make sure the following are installed:
+
+* Python 3.8+
+* Ollama
+* Git
+
+Verify installation:
+
+```bash
+python --version
+ollama --version
+```
+
+---
+
+# 1. Clone the Repository
+
+```bash
+git clone https://github.com/SusiKumarm/AI_Agent_ProjectOOLAMA.git
+cd AI_Agent_ProjectOOLAMA
+```
+
+---
+
+# 2. Create Virtual Environment
+
+```bash
+python -m venv .venv
+```
+
+Activate the environment.
+
+### Windows
+
+```bash
+.venv\Scripts\activate
+```
+
+### macOS / Linux
+
+```bash
+source .venv/bin/activate
+```
+
+---
+
+# 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# 4. Install Ollama Models
+
+Choose one or more models.
+
+### Lightweight
+
+```bash
+ollama pull phi3:mini
+```
+
+### Balanced
+
+```bash
+ollama pull gemma
+```
+
+### High Quality
+
+```bash
+ollama pull mistral
+```
+
+View downloaded models:
+
+```bash
+ollama list
+```
+
+---
+
+# 5. Start Ollama Server
+
+Open a terminal and run:
+
+```bash
+ollama serve
+```
+
+The Ollama server will start on:
+
+```text
+http://127.0.0.1:11434
+```
+
+Keep this terminal running while using the application.
+
+---
+
+# 6. Verify Ollama Connection
+
+Run:
+
+```bash
+python ollama_test.py
+```
+
+Example:
+
+```text
+You: What is AI?
+AI: Artificial Intelligence...
+```
+
+Type:
+
+```text
+exit
+```
+
+to close the application.
+
+---
+
+# 7. Create Vector Database (RAG Setup)
+
+Place your PDF or document files inside the `data/` folder.
+
+Example:
+
+```text
+data/
+├── InsuranceGuide.pdf
+├── ProductDocumentation.pdf
+└── Requirements.pdf
+```
+
+Generate embeddings and store them in ChromaDB:
+
+```bash
+python rag_setup.py
+```
+
+This creates the persistent vector database:
+
+```text
+db/
+```
+
+Run this step again whenever new documents are added or existing documents are modified.
+
+---
+
+# 8. Run RAG Chatbot (CLI)
+
+After creating the vector database:
+
+```bash
+python rag_chat.py
+```
+
+Example:
+
+```text
+You: Explain the insurance policy document
+AI: ...
+```
+
+The application will:
+
+1. Search ChromaDB for relevant content
+2. Retrieve matching document chunks
+3. Send context to Ollama
+4. Generate a response
+
+---
+
+# 9. Run Streamlit Web UI
+
+Launch the web application:
+
+```bash
+streamlit run appUistreamLit.py
+```
+
+Streamlit will start locally:
+
+```text
+http://localhost:8501
+```
+
+Open the URL in your browser.
+
+Features:
+
+* Local Ollama Chat
+* RAG-based Question Answering
+* Cloud LLM Support
+* Local Fallback Support
+* User-Friendly Web Interface
+
+---
+
+# 10. Configure Google Gemini (Optional)
+
+If cloud mode is enabled:
+
+### Windows PowerShell
+
+```powershell
+$env:GOOGLE_API_KEY="YOUR_API_KEY"
+```
+
+Verify:
+
+```powershell
+echo $env:GOOGLE_API_KEY
+```
+
+Then start the Streamlit application:
+
+```bash
+streamlit run appUistreamLit.py
+```
+
+---
+
+# Daily Startup Guide
+
+## Terminal 1
+
+Activate environment:
+
+```bash
+.venv\Scripts\activate
+```
+
+Start Ollama:
+
+```bash
+ollama serve
+```
+
+---
+
+## Terminal 2
+
+Activate environment:
+
+```bash
+.venv\Scripts\activate
+```
+
+Launch Streamlit:
+
+```bash
+streamlit run appUistreamLit.py
+```
+
+Open:
+
+```text
+http://localhost:8501
+```
+
+and start chatting.
+
+---
+
+# Useful Commands
+
+### Check Ollama Version
+
+```bash
+ollama --version
+```
+
+### List Installed Models
+
+```bash
+ollama list
+```
+
+### Pull a New Model
+
+```bash
+ollama pull phi3:mini
+```
+
+### Rebuild Vector Database
+
+```bash
+python rag_setup.py
+```
+
+### Run CLI Chatbot
+
+```bash
+python rag_chat.py
+```
+
+### Run Streamlit UI
+
+```bash
+streamlit run appUistreamLit.py
+```
+
+---
+
+# Troubleshooting
+
+## Ollama Not Found
+
+```bash
+ollama --version
+```
+
+If the command fails, reinstall Ollama and ensure it is added to the system PATH.
+
+---
+
+## Connection Refused (127.0.0.1:11434)
+
+Make sure the Ollama server is running:
+
+```bash
+ollama serve
+```
+
+---
+
+## Model Not Found
+
+Check installed models:
+
+```bash
+ollama list
+```
+
+Pull the model again:
+
+```bash
+ollama pull phi3:mini
+```
+
+---
+
+## Missing Python Packages
+
+Reinstall dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Ensure the virtual environment is activated before running commands.
+
+for streamLit execution
+
+(.venv) PS E:\Interview\AI\AI_Agent_ProjectOOLAMA> streamlit run appUistreamLit.py     
+
+
 📜 License
 
 MIT License
