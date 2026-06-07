@@ -5,6 +5,8 @@ import google.generativeai as genai
 from sentence_transformers import SentenceTransformer
 import chromadb
 from chromadb.config import Settings
+import json
+from tools.weather import get_weather
 
 # ==============================
 # CONFIG
@@ -69,6 +71,43 @@ if user_input:
 
     st.session_state.messages.append(("user", user_input))
 
+#tools calling weather API
+tool_prompt = f"""
+You are a tool selector.
+
+Available tools:
+
+1. weather
+
+If weather information is requested return:
+
+{{"tool":"weather"}}
+
+Otherwise return:
+
+{{"tool":"none"}}
+
+User Question:
+{user_input}
+"""
+
+tool_response = ollama.chat(
+    model=OLLAMA_MODEL,
+    messages=[
+        {"role": "user", "content": tool_prompt}
+    ]
+)["message"]["content"]
+
+
+st.write("Tool Response:", tool_response)
+
+
+try:
+    tool_request = json.loads(tool_response)
+except:
+    tool_request = {"tool": "none"}
+
+#-----completed calling
     # 1️⃣ Embed Question
     query_embedding = embed_model.encode(user_input).tolist()
 
@@ -95,7 +134,19 @@ Question:
 """
 
     answer = ""
+    #tool calling weather API
+if tool_request.get("tool") == "weather":
 
+    weather_data = get_weather()
+
+    answer = f"""
+Current Temperature: {weather_data['temperature']}°C
+
+Wind Speed: {weather_data['windspeed']} km/h
+"""
+
+    st.session_state.messages.append(("assistant", answer))
+    st.rerun()
     # ==============================
     # GEMINI FIRST (if selected)
     # ==============================
@@ -124,6 +175,7 @@ Question:
         )["message"]["content"]
 
     st.session_state.messages.append(("assistant", answer))
+    st.rerun()
 
 # ==============================
 # DISPLAY CHAT
