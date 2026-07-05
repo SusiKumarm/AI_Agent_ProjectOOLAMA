@@ -685,3 +685,8 @@ Answer
 ### Key Learning
 
 Tool Calling extends an LLM beyond its training data by enabling it to interact with external systems and APIs. This is a core building block for AI Agents, MCP, LangGraph, and enterprise AI applications.
+
+
+
+LanGraph:-
+![alt text](<assetsResults/image-3Langraph.png>)
